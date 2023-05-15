@@ -7,4 +7,7 @@ img = cv2.imread('ar.png')
 # print(code)
 
 for barcode in decode(img):
-    print(barcode.polygon)
+    print(barcode.data)
+
+    myData = barcode.data.decode('utf-8')
+    print(myData)
