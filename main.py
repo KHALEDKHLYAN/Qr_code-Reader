@@ -20,5 +20,9 @@ while True:
         myData = barcode.data.decode('utf-8')
         print(myData)
 
-        cv2.imshow('Result',img)
-        cv2.waitKey(1)
+        pts = np.array([barcode.polygon], np.int32)
+        pts = pts.reshape((-1,1,2))
+        cv2.polylines(img,[pts],True,(255,0,255), 5)
+
+    cv2.imshow('Result',img)
+    cv2.waitKey(1)
